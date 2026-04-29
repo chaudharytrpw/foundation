@@ -1,7 +1,7 @@
 export default function ImpactSection() {
   return (
     <section className="w-full  py-12 px-4">
-      <div className="max-w-7xl mx-auto grid gap-6 
+      <div className="max-w-[1150px] mx-auto grid gap-6 
                       grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 
         {/* Card 1 - Image */}

@@ -4,31 +4,31 @@ import { useState } from "react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Chen",
-    role: "Product Designer",
-    image: "https://i.pravatar.cc/100?img=1",
-    text: "The team was incredibly responsive and helped bring our vision to life beautifully.",
+    name: "Takam Anju",
+    role: "State Director",
+    image: "https://i.pravatar.cc/100?img=5",
+    text: "Sangcha Ajin Foundation is committed to empowering communities and creating opportunities for growth and development across Arunachal Pradesh.",
   },
   {
     id: 2,
-    name: "David Kim",
-    role: "Startup Founder",
-    image: "https://i.pravatar.cc/100?img=2",
-    text: "Amazing experience! The product quality exceeded expectations.",
+    name: "Thupten Lhamu",
+    role: "Miss Universe Arunachal Pradesh 2024",
+    image: "https://i.pravatar.cc/100?img=6",
+    text: "Winning this title has been a life-changing experience. I am proud to represent my state and be part of such a meaningful initiative.",
   },
   {
     id: 3,
-    name: "Aisha Patel",
-    role: "Marketing Lead",
-    image: "https://i.pravatar.cc/100?img=3",
-    text: "Professional, fast, and very detail-oriented team.",
+    name: "Community Member",
+    role: "Beneficiary",
+    image: "https://i.pravatar.cc/100?img=7",
+    text: "The foundation has helped improve education and opportunities in our area. Their work truly makes a difference.",
   },
   {
     id: 4,
-    name: "James Carter",
-    role: "Engineer",
-    image: "https://i.pravatar.cc/100?img=4",
-    text: "Great communication and solid execution from start to finish.",
+    name: "Volunteer",
+    role: "Supporter",
+    image: "https://i.pravatar.cc/100?img=8",
+    text: "Being part of Sangcha Ajin Foundation has been inspiring. The dedication towards social change is remarkable.",
   },
 ];
 
@@ -36,13 +36,15 @@ export default function TestimonialSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="w-full py-16  px-4  text-center">
+    <section className="w-full py-16 px-4 text-center">
+      
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl text-green-500 font-semibold mb-2">
-        Spreading Smiles, Changing Lives
+        Voices of Impact
       </h2>
+
       <p className="text-gray-500 max-w-xl mx-auto mb-10 text-sm md:text-base">
-        Hear what our happy clients have to say about us
+        Voices from our community and supporters
       </p>
 
       {/* Avatar Row */}
@@ -67,7 +69,7 @@ export default function TestimonialSection() {
       </div>
 
       {/* Testimonial Card */}
-      <div className="max-w-5xl mx-auto bg-gray-50 p-6 md:p-10 rounded-xl shadow-sm relative">
+      <div className="max-w-5xl mx-auto bg-gray-50 p-6 md:p-10 rounded-xl shadow-sm">
         <p className="text-gray-600 italic mb-6 text-sm md:text-lg transition-all duration-300">
           “{testimonials[active].text}”
         </p>
@@ -81,6 +83,7 @@ export default function TestimonialSection() {
           </span>
         </div>
       </div>
+
     </section>
   );
 }

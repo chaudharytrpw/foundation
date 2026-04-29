@@ -4,33 +4,33 @@ import { useState } from "react";
 const faqs = [
   {
     id: "01",
-    question: "What is your pricing?",
+    question: "What is Sangcha Ajin Foundation?",
     answer:
-      "Our pricing depends on the project scope and requirements. Contact us for a custom quote tailored to your needs.",
+      "Sangcha Ajin Foundation is a registered social welfare organization based in Palin, Arunachal Pradesh, dedicated to community development and uplifting underprivileged sections of society.",
   },
   {
     id: "02",
-    question: "Do you offer free support?",
+    question: "When was the foundation established?",
     answer:
-      "Yes, we provide limited free support after delivery. Extended support plans are also available.",
+      "The foundation was established on June 5, 2017, and has since been actively involved in various charitable initiatives.",
   },
   {
     id: "03",
-    question: "How long does delivery take?",
+    question: "What kind of work does the foundation do?",
     answer:
-      "Typical delivery takes 1–3 weeks depending on complexity and feedback cycles.",
+      "The foundation works in areas such as education, healthcare, and skill development to support and empower communities.",
   },
   {
     id: "04",
-    question: "Can I request revisions?",
+    question: "Is the foundation officially registered?",
     answer:
-      "Absolutely! We include multiple revision rounds to ensure you're satisfied.",
+      "Yes, Sangcha Ajin Foundation is officially registered under the Societies Registration Act, 1860 and recognized by the Government of Arunachal Pradesh.",
   },
   {
     id: "05",
-    question: "Do you provide refunds?",
+    question: "What is Miss Universe Arunachal Pradesh initiative?",
     answer:
-      "Refunds are handled case-by-case depending on project progress and agreement terms.",
+      "In 2024, the foundation organized the first Miss Universe Arunachal Pradesh pageant to promote talent, culture, and empowerment at a national level.",
   },
 ];
 
