@@ -4,7 +4,7 @@ import { useState } from "react";
 const testimonials = [
   {
     id: 1,
-    name: "Takam Anju",
+    name: "Byabang Hapo Dui",
     role: "State Director",
     image: "https://i.pravatar.cc/100?img=5",
     text: "Sangcha Ajin Foundation is committed to empowering communities and creating opportunities for growth and development across Arunachal Pradesh.",
