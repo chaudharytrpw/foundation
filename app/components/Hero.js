@@ -1,4 +1,11 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 export default function Hero() {
+  const router=useRouter()
+  const getRout=(()=>{
+    router.push("/donate")
+  })
   return (
     <section className="w-full py-10 px-4">
       <div className="max-w-4xl mx-auto text-center">
@@ -15,8 +22,8 @@ export default function Hero() {
 
         {/* Button */}
         <div className="mt-8">
-          <button className="bg-[#28ef43] cursor-pointer text-black px-6 py-3 rounded-full font-medium hover:scale-105 transition flex items-center gap-2 mx-auto">
-            Support Us
+          <button onClick={()=>getRout()} className="bg-[#28ef43] cursor-pointer text-black px-6 py-3 rounded-full font-medium hover:scale-105 transition flex items-center gap-2 mx-auto">
+            Donate
             <span className="text-lg">↗</span>
           </button>
         </div>

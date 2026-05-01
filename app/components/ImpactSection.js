@@ -7,7 +7,7 @@ export default function ImpactSection() {
         {/* Card 1 - Image */}
         <div className="bg-[#72f684] rounded-2xl overflow-hidden flex items-center justify-center">
           <img
-            src="/child.jpg" // replace with your image
+            src="/img/Image_37.jpeg" // replace with your image
             alt="child"
             className="w-full h-full object-cover"
           />
@@ -45,7 +45,7 @@ export default function ImpactSection() {
         {/* Card 4 - Image + text */}
         <div className="bg-white rounded-2xl p-4 shadow-sm flex flex-col">
           <img
-            src="/child2.jpg" // replace
+            src="/img/Image_35.jpeg" // replace
             alt="child"
             className="rounded-xl mb-4 object-cover h-40 w-full"
           />
