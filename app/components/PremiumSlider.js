@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "/img/foundation/Image_2.jpeg",
-  "/img/foundation/Image_3.jpeg",
-  "/img/foundation/Image_4.jpeg",
-  "/img/foundation/Image_12.jpeg",
-  "/img/foundation/Image_13.jpeg"
+  "/img/foundation/Image_35.jpeg",
+  "/img/foundation/Image_36.jpeg",
+  "/img/foundation/Image_39.jpeg",
+  "/img/foundation/Image_40.jpeg",
+  "/img/foundation/Image_41.jpeg"
 ];
 
 export default function PremiumSlider() {
@@ -49,8 +49,7 @@ export default function PremiumSlider() {
             className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[4000ms]"
           />
 
-          {/* gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+          
         </div>
       ))}
 

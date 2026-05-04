@@ -7,6 +7,9 @@ import TestimonialSection from "./components/TestimonialSection";
 import FAQSection from "./components/FAQSection";
 import PremiumSlider from "./components/PremiumSlider";
 import SmallCardSlider from "./components/SmallCardSlider";
+import AccreditationSlider from "./components/AccreditationSlider";
+import OurImpact from "./components/OurImpact";
+import OurProgrammes from "./components/OurProgrammes";
 
 export default function Home() {
   return (
@@ -18,8 +21,11 @@ export default function Home() {
    <MissionVision/>
    <GoalsSection/>
    <TestimonialSection/>
+   <AccreditationSlider/>
+   <OurProgrammes/>
    <FAQSection/>
-   <SmallCardSlider/>
+   <OurImpact/>
+   {/* <SmallCardSlider/> */}
    </>
   );
 }

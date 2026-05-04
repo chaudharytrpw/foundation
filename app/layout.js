@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
           <AppLoader>
           <Navbar />
 
-          <main className="flex-1 bg-[#d4f3d2] mt-16 p-4">
+          <main className="flex-1 bg-[#d4f3d2] mt-16 ">
             {children}
           </main>
             <Toaster position="top-right" />

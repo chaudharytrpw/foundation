@@ -5,32 +5,28 @@ const faqs = [
   {
     id: "01",
     question: "What is Sangcha Ajin Foundation?",
-    answer:
-      "Sangcha Ajin Foundation is a registered social welfare organization based in Palin, Arunachal Pradesh, dedicated to community development and uplifting underprivileged sections of society.",
+
+    answer: `Sangcha Ajin Foundation is a registered charitable organization under the Societies Registration Act, 1860 (as extended to Arunachal Pradesh). The foundation is also registered on the NGO Darpan portal (NITI Aayog), reflecting its transparency and credibility in the non-profit sector.
+
+In addition, the organization is registered under Section 12AA and approved under Section 80G of the Income Tax Act, 1961, enabling donors to avail tax benefits.`,
   },
   {
     id: "02",
     question: "When was the foundation established?",
     answer:
-      "The foundation was established on June 5, 2017, and has since been actively involved in various charitable initiatives.",
+      "The foundation was established on October 6, 2006, and has since been actively involved in various charitable initiatives.",
   },
   {
     id: "03",
     question: "What kind of work does the foundation do?",
     answer:
-      "The foundation works in areas such as education, healthcare, and skill development to support and empower communities.",
+    " Established with a vision to serve society, the foundation works towards promoting education, supporting rural communities, and improving the quality of life for underprivileged sections of society."
   },
   {
     id: "04",
     question: "Is the foundation officially registered?",
     answer:
       "Yes, Sangcha Ajin Foundation is officially registered under the Societies Registration Act, 1860 and recognized by the Government of Arunachal Pradesh.",
-  },
-  {
-    id: "05",
-    question: "What is Miss Universe Arunachal Pradesh initiative?",
-    answer:
-      "In 2024, the foundation organized the first Miss Universe Arunachal Pradesh pageant to promote talent, culture, and empowerment at a national level.",
   },
 ];
 

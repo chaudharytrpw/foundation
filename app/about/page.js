@@ -1,5 +1,9 @@
+import HeroSection from "../components/HeroSection";
+
 export default function Page() {
   return (
+    <>  
+    <HeroSection/>
     <section className="w-full px-4 sm:px-6 py-12">
       <div className="max-w-6xl mx-auto">
         
@@ -103,5 +107,7 @@ export default function Page() {
 
       </div>
     </section>
+
+    </>
   );
 }
