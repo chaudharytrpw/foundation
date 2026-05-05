@@ -6,28 +6,24 @@ const data = [
   {
     title: "Guidestar India Platinum",
     desc: "Awarded the highest level of transparency accreditation for consistently sharing detailed financial, programmatic, and governance information with the public.",
-    img: "/img/Image_1.jpeg",
+    img: "/certificates/FOUNDATION001.png",
   },
   {
     title: "CAF International",
     desc: "Successfully passed rigorous due diligence processes, ensuring compliance with global standards for accountability, governance, and impact.",
-    img: "/img/Image_1.jpeg",
+    img: "/certificates/FOUNDATION002.png",
   },
   {
     title: "UN ECOSOC",
     desc: "Recognized with Special Consultative Status, enabling active participation in United Nations discussions and contributing to global policy development.",
-    img: "/img/Image_1.jpeg",
+    img: "/certificates/FOUNDATION003.png",
   },
   {
-    title: "Extra Card 1",
+    title: "UN ECOSOC",
     desc: "Represents additional achievements and initiatives focused on community development, innovation, and sustainable impact across various sectors.",
-    img: "/img/Image_1.jpeg",
+    img: "/certificates/FOUNDATION005.png",
   },
-  {
-    title: "Extra Card 2",
-    desc: "Highlights ongoing efforts to expand outreach, strengthen partnerships, and deliver measurable outcomes through impactful programs.",
-    img: "/img/Image_1.jpeg",
-  },
+ 
 ];
 
 export default function AccreditationSlider() {
