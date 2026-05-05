@@ -19,7 +19,7 @@ export default function MissionVision() {
           {/* Left Image */}
           <div className="bg-[#c3f7ca] rounded-2xl overflow-hidden">
             <img
-              src="/img/Image_35.jpeg"
+              src="/img/Image_9.jpeg"
               alt="children"
               className="w-full h-full object-cover"
             />
@@ -63,7 +63,7 @@ export default function MissionVision() {
           {/* Right Image */}
           <div className="bg-[#c3f7ca] rounded-2xl overflow-hidden">
             <img
-              src="/img/Image_40.jpeg"
+              src="/img/Image_23.jpeg"
               alt="children"
               className="w-full h-full object-cover"
             />

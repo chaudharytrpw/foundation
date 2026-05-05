@@ -20,6 +20,7 @@ export default function Page() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false); // ✅ modal state
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -57,61 +58,15 @@ export default function Page() {
     }
   };
 
+  // ✅ UPDATED: only open modal
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const isValid = await validateAll();
-  if (!isValid) return;
-  if(isValid)return toast.success( "User created successfully 🎉");
+    const isValid = await validateAll();
+    if (!isValid) return;
 
-
-  setLoading(true);
-
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/adduser`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          role: "user",
-          status: "pending",
-        }),
-      }
-    );
-
-    let data;
-    try {
-      data = await res.json();
-    } catch {
-      throw new Error("Invalid server response");
-    }
-
-    if (!res.ok) {
-      throw new Error(data?.message || "Request failed");
-    }
-
-    toast.success(data.message || "User created successfully 🎉");
-
-    setForm({
-      name: "",
-      phone: "",
-      email: "",
-      address: "",
-      country: "",
-      city: "",
-      pincode: "",
-      pan_number: "",
-      amount: "",
-    });
-
-  } catch (err) {
-    toast.error(err.message || "Something went wrong");
-  } finally {
-    setLoading(false);
-  }
-};
+    setShowModal(true); // ✅ open modal instead of API
+  };
 
   const fields = [
     "name",
@@ -126,90 +81,114 @@ export default function Page() {
   ];
 
   return (
-    <> 
-    <Loader loading={loading}/>
-    <section className="min-h-screen py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <Loader loading={loading} />
 
-        {/* Heading */}
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-            Make a Difference Today
-          </h1>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-            Your small contribution can create a big impact.
-          </p>
+      <section className="min-h-screen py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Heading */}
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+              Make a Difference Today
+            </h1>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
+              Your small contribution can create a big impact.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            {/* LEFT */}
+            <div className="p-8">
+              <h2 className="text-2xl font-semibold text-gray-800">
+                About Sangcha Ajin Foundation
+              </h2>
+
+              <p className="mt-4 text-gray-600">
+                Established in Arunachal Pradesh, we support education, healthcare and development.
+              </p>
+
+              <h3 className="mt-6 font-semibold text-gray-800">Our Mission</h3>
+
+              <ul className="mt-3 space-y-2 text-gray-600">
+                <li>✔ Education support</li>
+                <li>✔ Healthcare help</li>
+                <li>✔ Skill development</li>
+                <li>✔ Social empowerment</li>
+              </ul>
+            </div>
+
+            {/* RIGHT FORM */}
+            <div className="p-8 text-black bg-white rounded-2xl shadow-md">
+
+              <h2 className="text-2xl font-semibold mb-6">Donate Now</h2>
+
+              <form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
+                {fields.map((field) => (
+                  <div
+                    key={field}
+                    className={field === "address" ? "md:col-span-2" : ""}
+                  >
+                    <input
+                      name={field}
+                      value={form[field]}
+                      onChange={handleChange}
+                      placeholder={field}
+                      className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    />
+
+                    {errors[field] && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors[field]}
+                      </p>
+                    )}
+                  </div>
+                ))}
+
+                {/* BUTTON */}
+                <div className="md:col-span-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-[#28ef43] text-black py-3 rounded-lg font-medium hover:scale-105 transition"
+                  >
+                    Proceed to Donate →
+                  </button>
+
+                  <p className="text-xs text-gray-500 mt-3 text-center">
+                    100% secure payments. Your data is safe with us.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* LEFT + RIGHT ROW */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
-
-          {/* LEFT */}
-          <div className=" p-8 ">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              About Sangcha Ajin Foundation
+      {/* ✅ MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white p-6 rounded-xl shadow-lg text-center max-w-sm w-full">
+            <h2 className="text-xl font-semibold text-gray-800">
+              🚧 Work in Progress
             </h2>
 
-            <p className="mt-4 text-gray-600">
-              Established in Arunachal Pradesh, we support education, healthcare and development.
+            <p className="mt-3 text-gray-600">
+              Donation feature is currently under development.
             </p>
 
-            <h3 className="mt-6 font-semibold text-gray-800">Our Mission</h3>
-
-            <ul className="mt-3 space-y-2 text-gray-600">
-              <li>✔ Education support</li>
-              <li>✔ Healthcare help</li>
-              <li>✔ Skill development</li>
-              <li>✔ Social empowerment</li>
-            </ul>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-5 px-5 cursor-pointer py-2 bg-green-500 text-white rounded-lg hover:scale-105 transition"
+            >
+              OK
+            </button>
           </div>
-
-          {/* RIGHT FORM */}
-          <div className="p-8 text-black bg-white rounded-2xl shadow-md">
-
-            <h2 className="text-2xl font-semibold mb-6">Donate Now</h2>
-
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-              {fields.map((field) => (
-                <div key={field} className={field === "address" ? "md:col-span-2" : ""}>
-                  <input
-                    name={field}
-                    value={form[field]}
-                    onChange={handleChange}
-                    placeholder={field}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-
-                  {errors[field] && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors[field]}
-                    </p>
-                  )}
-                </div>
-              ))}
-
-              {/* BUTTON FULL WIDTH */}
-              <div className="md:col-span-2">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-[#28ef43] text-black py-3 rounded-lg font-medium hover:scale-105 transition"
-                >
-                  {loading ? "Processing..." : "Proceed to Donate →"}
-                </button>
-
-                <p className="text-xs text-gray-500 mt-3 text-center">
-                  100% secure payments. Your data is safe with us.
-                </p>
-              </div>
-
-            </form>
-          </div>
-
         </div>
-      </div>
-    </section>
+      )}
     </>
   );
 }

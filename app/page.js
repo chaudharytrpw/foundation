@@ -10,22 +10,26 @@ import SmallCardSlider from "./components/SmallCardSlider";
 import AccreditationSlider from "./components/AccreditationSlider";
 import OurImpact from "./components/OurImpact";
 import OurProgrammes from "./components/OurProgrammes";
+import EventSection from "./components/EventSection";
 
 export default function Home() {
   return (
    <>
 
    <Hero/>
-   <PremiumSlider/>
+   <EventSection/>
+   {/* <PremiumSlider/> */}
+
    <ImpactSection/>
    <MissionVision/>
    <GoalsSection/>
    <TestimonialSection/>
    <AccreditationSlider/>
+   <SmallCardSlider/>
+
    <OurProgrammes/>
    <FAQSection/>
    <OurImpact/>
-   {/* <SmallCardSlider/> */}
    </>
   );
 }

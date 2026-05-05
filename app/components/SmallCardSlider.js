@@ -2,15 +2,21 @@
 import { useState } from "react";
 
 const images = [
-  "/img/foundation/Image_2.jpeg",
-  "/img/foundation/Image_3.jpeg",
-  "/img/foundation/Image_4.jpeg",
-  "/img/foundation/Image_12.jpeg",
-  "/img/foundation/Image_13.jpeg",
-  "/img/Image_45.jpeg",
-  "/img/Image_44.jpeg",
-  "/img/Image_42.jpeg",
-  "/img/Image_41.jpeg"
+ "/img/Image_1.jpeg",
+ 
+ "/img/Image_7.jpeg",
+ "/img/Image_8.jpeg",
+ "/img/Image_9.jpeg",
+ "/img/Image_10.jpeg",
+ "/img/Image_11.jpeg",
+ "/img/Image_12.jpeg",
+ "/img/Image_2.jpeg",
+ "/img/Image_3.jpeg",
+ "/img/Image_4.jpeg",
+ "/img/Image_5.jpeg",
+ "/img/Image_6.jpeg",
+
+
 ];
 
 export default function SmallCardSlider() {
@@ -31,7 +37,7 @@ export default function SmallCardSlider() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full mb-2 overflow-hidden">
       {/* Left Button */}
       <button
         onClick={prev}

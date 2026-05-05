@@ -73,6 +73,7 @@ export default function Navbar() {
             <Link href="/" className={linkClass("/")}>Home</Link>
             <Link href="/about" className={linkClass("/about")}>About</Link>
             <Link href="/contact" className={linkClass("/contact")}>Contact</Link>
+             <Link href="/management" className={linkClass("/pdfpage")}>Management</Link>
           </div>
 
           {/* Right Side */}
@@ -125,6 +126,8 @@ export default function Navbar() {
             <Link href="/" className={mobileLinkClass("/")}>Home</Link>
             <Link href="/about" className={mobileLinkClass("/about")}>About</Link>
             <Link href="/contact" className={mobileLinkClass("/contact")}>Contact</Link>
+                         <Link href="/management" className={linkClass("/pdfpage")}>Management</Link>
+
           </div>
         </div>
       )}
