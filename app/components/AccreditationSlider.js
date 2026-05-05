@@ -3,20 +3,31 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const data = [
-  {
-    title: "Guidestar India Platinum",
-    desc: "Awarded the highest level of transparency accreditation for consistently sharing detailed financial, programmatic, and governance information with the public.",
-    img: "/certificates/FOUNDATION001.png",
-  },
+ 
   {
     title: "CAF International",
     desc: "Successfully passed rigorous due diligence processes, ensuring compliance with global standards for accountability, governance, and impact.",
-    img: "/certificates/FOUNDATION002.png",
+    img: "/certificates/FOUNDATION006.jpg",
   },
   {
     title: "UN ECOSOC",
     desc: "Recognized with Special Consultative Status, enabling active participation in United Nations discussions and contributing to global policy development.",
-    img: "/certificates/FOUNDATION003.png",
+    img: "/certificates/FOUNDATION004.png",
+  },
+  {
+    title: "UN ECOSOC",
+    desc: "Represents additional achievements and initiatives focused on community development, innovation, and sustainable impact across various sectors.",
+    img: "/certificates/FOUNDATION005.png",
+  },
+  {
+    title: "CAF International",
+    desc: "Successfully passed rigorous due diligence processes, ensuring compliance with global standards for accountability, governance, and impact.",
+    img: "/certificates/FOUNDATION006.jpg",
+  },
+  {
+    title: "UN ECOSOC",
+    desc: "Recognized with Special Consultative Status, enabling active participation in United Nations discussions and contributing to global policy development.",
+    img: "/certificates/FOUNDATION004.png",
   },
   {
     title: "UN ECOSOC",
@@ -92,13 +103,13 @@ export default function AccreditationSlider() {
               className="px-3"
               style={{ minWidth: `${100 / itemsPerView}%` }}
             >
-              <div className="rounded-2xl p-5 h-full flex flex-col items-center  hover:shadow-xl transition">
+              <div className="rounded-2xl p-5 h-full flex flex-col items-center   transition">
                 
                 {/* Image */}
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-36 object-contain mb-2"
+                  className="w-full h-46 object-contain mb-2"
                 />
 
                 {/* Title */}
