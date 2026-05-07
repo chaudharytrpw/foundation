@@ -7,9 +7,9 @@ export default function EventSection() {
 
   return (
     <section className="w-full flex mt-4 justify-center">
-      <div className="relative w-full max-w-[1150px] aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1]">
+      <div className="relative w-full max-w-[1150px] aspect-[16/7] sm:aspect-[21/9] md:aspect-[3/1]">
         <Image
-          src="/events/event_1.png"
+          src="/events/EVENT.png"
           alt="Event Banner"
           fill
           priority

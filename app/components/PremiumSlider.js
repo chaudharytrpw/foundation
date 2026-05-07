@@ -2,7 +2,13 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "/img/foundation/image_51.jpeg",
+  "/img/foundation/image_1.jpeg",
+  "/img/foundation/image_1.jpeg",
+  "/img/foundation/image_3.jpeg",
+  "/img/foundation/MIA01106.JPG",
+  "/img/foundation/mua-76.JPG",
+  "/img/foundation/MIA01825.JPG"
+
  
 ];
 
@@ -28,7 +34,7 @@ export default function PremiumSlider() {
 
   return (
     <div
-      className="relative w-full h-[520px] md:h-[650px] overflow-hidden rounded-2xl group"
+      className="relative w-full h-[520px] md:h-[650px] overflow-hidden  group"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
