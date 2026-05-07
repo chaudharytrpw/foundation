@@ -2,10 +2,11 @@
 import { useEffect, useState } from "react";
 
 const images = [
+  "/img/foundation/MIA01106.JPG",
   "/img/foundation/image_1.jpeg",
   "/img/foundation/image_1.jpeg",
   "/img/foundation/image_3.jpeg",
-  "/img/foundation/MIA01106.JPG",
+  
   "/img/foundation/mua-76.JPG",
   "/img/foundation/MIA01825.JPG"
 
