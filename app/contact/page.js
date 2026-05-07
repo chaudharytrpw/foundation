@@ -21,7 +21,6 @@ export default function ContactPage() {
   return (
     <section className="w-full px-4 sm:px-6 py-12">
       <div className="max-w-6xl mx-auto">
-        
         {/* Heading */}
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">
@@ -34,7 +33,6 @@ export default function ContactPage() {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-10">
-          
           {/* Contact Info */}
           <div className="space-y-5">
             <h2 className="text-xl font-semibold text-gray-800">
@@ -42,15 +40,15 @@ export default function ContactPage() {
             </h2>
 
             <p className="text-gray-600 text-sm">
-              Sangcha Ajin Foundation is always open to collaborations,
-              support, and community engagement.
+              Sangcha Ajin Foundation is always open to collaborations, support,
+              and community engagement.
             </p>
 
             <div className="text-sm text-gray-700 space-y-2">
-              <p>📍 Palin, Kra Daadi District</p>
-              <p>Arunachal Pradesh, India</p>
-              <p>📧 info@safoundation.org</p>
-              <p>📞 +91 98765 43210</p>
+              <p>📍 C-Sector, Itanagar, Papum Pare District</p>
+              <p>Arunachal Pradesh, 791111, India</p>
+              <p>📧 sangchaajin@gmail.com</p>
+              <p>📞 +91 3603566397</p>
             </div>
 
             {/* Map (optional) */}
@@ -111,7 +109,6 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
-
         </div>
       </div>
     </section>
