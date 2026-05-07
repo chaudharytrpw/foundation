@@ -7,28 +7,28 @@ const events = [
     title: "Tech Conference",
     location: "Delhi, India",
     date: "15 March 2024",
-    image: "/events/event_8.png",
+    image: "/events/event_1.png",
   },
   {
     id: 2,
     title: "Startup Meetup",
     location: "Bangalore, India",
     date: "20 May 2024",
-    image: "/events/event_8.png",
+    image: "/events/event_1.png",
   },
   {
     id: 3,
     title: "Design Workshop",
     location: "Mumbai, India",
     date: "10 July 2024",
-    image: "/events/event_8.png",
+    image: "/events/event_1.png",
   },
   {
     id: 4,
     title: "AI Summit",
     location: "Hyderabad, India",
     date: "5 September 2024",
-    image: "/events/event_8.png",
+    image: "/events/event_1.png",
   },
 ];
 

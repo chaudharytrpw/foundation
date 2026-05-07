@@ -17,10 +17,11 @@ export default function Home() {
    <>
 
    <Hero/>
-   <EventSection/>
-   {/* <PremiumSlider/> */}
+  
+   <PremiumSlider/>
 
-   <ImpactSection/>
+     <EventSection/>
+   {/* <ImpactSection/> */}
    <MissionVision/>
    <GoalsSection/>
    <TestimonialSection/>
