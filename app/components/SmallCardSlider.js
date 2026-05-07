@@ -17,24 +17,25 @@ const images = [
   "/img/Image_6.jpeg",
 ];
 
+// Duplicate for infinite effect
+const loopImages = [...images, ...images];
+
 export default function SmallCardSlider() {
   const [current, setCurrent] = useState(0);
 
-  const visibleCards = 3;
-
   const intervalRef = useRef(null);
+
+  const cardWidth = 196;
 
   // NEXT
   const next = () => {
-    setCurrent((prev) =>
-      prev >= images.length - visibleCards ? 0 : prev + 1
-    );
+    setCurrent((prev) => prev + 1);
   };
 
   // PREV
   const prev = () => {
     setCurrent((prev) =>
-      prev <= 0 ? images.length - visibleCards : prev - 1
+      prev === 0 ? images.length - 1 : prev - 1
     );
   };
 
@@ -47,12 +48,19 @@ export default function SmallCardSlider() {
     return () => clearInterval(intervalRef.current);
   }, []);
 
-  // STOP ON HOVER
+  // RESET FOR INFINITE LOOP
+  useEffect(() => {
+    if (current >= images.length) {
+      setTimeout(() => {
+        setCurrent(0);
+      }, 500);
+    }
+  }, [current]);
+
   const stopAutoSlide = () => {
     clearInterval(intervalRef.current);
   };
 
-  // RESTART ON LEAVE
   const startAutoSlide = () => {
     intervalRef.current = setInterval(() => {
       next();
@@ -61,7 +69,7 @@ export default function SmallCardSlider() {
 
   return (
     <div
-      className="relative w-full mb-2 overflow-hidden"
+      className="relative w-full overflow-hidden"
       onMouseEnter={stopAutoSlide}
       onMouseLeave={startAutoSlide}
     >
@@ -74,14 +82,14 @@ export default function SmallCardSlider() {
         ❮
       </button>
 
-      {/* Slider Track */}
+      {/* Slider */}
       <div
         className="flex gap-4 transition-transform duration-500"
         style={{
-          transform: `translateX(-${current * 200}px)`,
+          transform: `translateX(-${current * cardWidth}px)`,
         }}
       >
-        {images.map((src, i) => (
+        {loopImages.map((src, i) => (
           <div
             key={i}
             className="min-w-[180px] h-[120px] rounded-xl overflow-hidden shadow-md"
