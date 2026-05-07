@@ -65,7 +65,7 @@ export default function OurImpact() {
         OUR IMPACT
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center">
         {stats.map((item, i) => (
           <div key={i} className="flex flex-col items-center">
             
