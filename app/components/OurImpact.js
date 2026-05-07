@@ -2,10 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { number: 20, suffix: "+", title: "LAC", desc: "children and their families are impacted every year" },
-  { number: 2000, suffix: "+", title: "VILLAGES", desc: "and slums are reached out to across the country" },
-  { number: 400, suffix: "+", title: "PROJECTS", desc: "focused on education, healthcare, and women empowerment" },
-  { number: 27, suffix: "+", title: "STATES", desc: "are reached including the remotest areas" },
+  { number: 1000, suffix: "+", title: "Thousand", desc: "children and their families are impacted every year" },
+  { number: 40, suffix: "+", title: "VILLAGES", desc: "and slums are reached out to across the country" },
+  { number: 20, suffix: "+", title: "PROJECTS", desc: "focused on education, healthcare, and women empowerment" },
 ];
 
 function Counter({ target, suffix, start }) {
