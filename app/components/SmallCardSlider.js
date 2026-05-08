@@ -19,15 +19,15 @@ const images = [
   "/img/image_53.jpeg",
   "/img/image_52.jpeg",
   "/img/image_51.jpeg",
-  "/img/image_50.jpeg"
-
 ];
 
 // Split into 2 rows
-const firstRow = images.slice(0, 6);
-const secondRow = images.slice(6, 12);
+const middle = Math.ceil(images.length / 2);
 
-// Duplicate for infinite effect
+const firstRow = images.slice(0, middle);
+const secondRow = images.slice(middle);
+
+// Duplicate for infinite loop
 const loopRow1 = [...firstRow, ...firstRow];
 const loopRow2 = [...secondRow, ...secondRow];
 
@@ -43,23 +43,30 @@ export default function SmallCardSlider() {
     setCurrent((prev) => prev + 1);
   };
 
-  // PREV
-  const prev = () => {
-    setCurrent((prev) =>
-      prev === 0 ? firstRow.length - 1 : prev - 1
-    );
+  // AUTO START
+  const startAutoSlide = () => {
+    stopAutoSlide();
+
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, 2500);
   };
 
-  // AUTO SLIDE
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      next();
-    }, 3000);
+  // STOP
+  const stopAutoSlide = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
 
-    return () => clearInterval(intervalRef.current);
+  // START ON LOAD
+  useEffect(() => {
+    startAutoSlide();
+
+    return () => stopAutoSlide();
   }, []);
 
-  // RESET FOR INFINITE LOOP
+  // INFINITE LOOP RESET
   useEffect(() => {
     if (current >= firstRow.length) {
       setTimeout(() => {
@@ -68,32 +75,14 @@ export default function SmallCardSlider() {
     }
   }, [current]);
 
-  const stopAutoSlide = () => {
-    clearInterval(intervalRef.current);
-  };
-
-  const startAutoSlide = () => {
-    intervalRef.current = setInterval(() => {
-      next();
-    }, 3000);
-  };
-
   return (
     <div
       className="relative w-full overflow-hidden"
       onMouseEnter={stopAutoSlide}
       onMouseLeave={startAutoSlide}
     >
-      {/* Left Button */}
-      <button
-        onClick={prev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-10
-        bg-black/40 text-white p-2 rounded-full"
-      >
-        ❮
-      </button>
-
       <div className="flex flex-col gap-4">
+
         {/* ROW 1 */}
         <div
           className="flex gap-4 transition-transform duration-500"
@@ -136,15 +125,6 @@ export default function SmallCardSlider() {
           ))}
         </div>
       </div>
-
-      {/* Right Button */}
-      <button
-        onClick={next}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-10
-        bg-black/40 text-white p-2 rounded-full"
-      >
-        ❯
-      </button>
     </div>
   );
 }
