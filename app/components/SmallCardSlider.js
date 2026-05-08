@@ -15,10 +15,21 @@ const images = [
   "/img/Image_4.jpeg",
   "/img/Image_5.jpeg",
   "/img/Image_6.jpeg",
+  "/img/image_54.jpeg",
+  "/img/image_53.jpeg",
+  "/img/image_52.jpeg",
+  "/img/image_51.jpeg",
+  "/img/image_50.jpeg"
+
 ];
 
+// Split into 2 rows
+const firstRow = images.slice(0, 6);
+const secondRow = images.slice(6, 12);
+
 // Duplicate for infinite effect
-const loopImages = [...images, ...images];
+const loopRow1 = [...firstRow, ...firstRow];
+const loopRow2 = [...secondRow, ...secondRow];
 
 export default function SmallCardSlider() {
   const [current, setCurrent] = useState(0);
@@ -35,7 +46,7 @@ export default function SmallCardSlider() {
   // PREV
   const prev = () => {
     setCurrent((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
+      prev === 0 ? firstRow.length - 1 : prev - 1
     );
   };
 
@@ -50,7 +61,7 @@ export default function SmallCardSlider() {
 
   // RESET FOR INFINITE LOOP
   useEffect(() => {
-    if (current >= images.length) {
+    if (current >= firstRow.length) {
       setTimeout(() => {
         setCurrent(0);
       }, 500);
@@ -82,25 +93,48 @@ export default function SmallCardSlider() {
         ❮
       </button>
 
-      {/* Slider */}
-      <div
-        className="flex gap-4 transition-transform duration-500"
-        style={{
-          transform: `translateX(-${current * cardWidth}px)`,
-        }}
-      >
-        {loopImages.map((src, i) => (
-          <div
-            key={i}
-            className="min-w-[180px] h-[120px] rounded-xl overflow-hidden shadow-md"
-          >
-            <img
-              src={src}
-              alt="card"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+      <div className="flex flex-col gap-4">
+        {/* ROW 1 */}
+        <div
+          className="flex gap-4 transition-transform duration-500"
+          style={{
+            transform: `translateX(-${current * cardWidth}px)`,
+          }}
+        >
+          {loopRow1.map((src, i) => (
+            <div
+              key={i}
+              className="min-w-[180px] h-[120px] rounded-xl overflow-hidden shadow-md"
+            >
+              <img
+                src={src}
+                alt="card"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* ROW 2 */}
+        <div
+          className="flex gap-4 transition-transform duration-500"
+          style={{
+            transform: `translateX(-${current * cardWidth}px)`,
+          }}
+        >
+          {loopRow2.map((src, i) => (
+            <div
+              key={i}
+              className="min-w-[180px] h-[120px] rounded-xl overflow-hidden shadow-md"
+            >
+              <img
+                src={src}
+                alt="card"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Right Button */}
