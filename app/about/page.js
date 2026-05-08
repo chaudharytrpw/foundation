@@ -33,7 +33,7 @@ export default function Page() {
           {/* Image */}
           <div>
             <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+              src="/img/foundation/MIA01106.JPG"
               alt="community"
               className="rounded-xl w-full h-64 object-cover"
             />

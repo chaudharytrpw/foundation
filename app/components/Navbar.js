@@ -40,9 +40,7 @@ export default function Navbar() {
 
   const mobileLinkClass = (path) =>
     `block ${
-      pathname === path
-        ? "text-green-400 font-semibold"
-        : "hover:text-white"
+      pathname === path ? "text-green-400 font-semibold" : "hover:text-white"
     }`;
 
   return (
@@ -56,29 +54,36 @@ export default function Navbar() {
     >
       <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-
           {/* Logo */}
           <Link href="/">
             <Image
-              src="/logos.png"
+              src="/logo.png"
               alt="SA Foundation Logo"
               width={90}
               height={35}
+              style={{ width: "auto", height: "auto" }}
               className="object-contain cursor-pointer"
             />
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <Link href="/" className={linkClass("/")}>Home</Link>
-            <Link href="/about" className={linkClass("/about")}>About</Link>
-            <Link href="/contact" className={linkClass("/contact")}>Contact</Link>
-             <Link href="/management" className={linkClass("/management")}>Management</Link>
+            <Link href="/" className={linkClass("/")}>
+              Home
+            </Link>
+            <Link href="/about" className={linkClass("/about")}>
+              About
+            </Link>
+            <Link href="/contact" className={linkClass("/contact")}>
+              Contact
+            </Link>
+            <Link href="/management" className={linkClass("/management")}>
+              Overview
+            </Link>
           </div>
 
           {/* Right Side */}
           <div className="flex items-center space-x-4">
-
             {/* Profile */}
             {user && (
               <div className="relative">
@@ -91,10 +96,16 @@ export default function Navbar() {
 
                 {profileOpen && (
                   <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md overflow-hidden text-sm">
-                    <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100">
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
                       My Profile
                     </Link>
-                    <Link href="/settings" className="block px-4 py-2 hover:bg-gray-100">
+                    <Link
+                      href="/settings"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
                       Settings
                     </Link>
                     <button
@@ -114,7 +125,6 @@ export default function Navbar() {
                 {open ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -123,11 +133,18 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-black/80 backdrop-blur-md">
           <div className="px-4 pt-2 pb-4 space-y-3">
-            <Link href="/" className={mobileLinkClass("/")}>Home</Link>
-            <Link href="/about" className={mobileLinkClass("/about")}>About</Link>
-            <Link href="/contact" className={mobileLinkClass("/contact")}>Contact</Link>
-            <Link href="/management" className={linkClass("/management")}>Management</Link>
-
+            <Link href="/" className={mobileLinkClass("/")}>
+              Home
+            </Link>
+            <Link href="/about" className={mobileLinkClass("/about")}>
+              About
+            </Link>
+            <Link href="/contact" className={mobileLinkClass("/contact")}>
+              Contact
+            </Link>
+            <Link href="/management" className={linkClass("/management")}>
+              Overview
+            </Link>
           </div>
         </div>
       )}
