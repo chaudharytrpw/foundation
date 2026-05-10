@@ -15,11 +15,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+ export const metadata = {
+  metadataBase: new URL("https://sangchaajin.com"),
   title: "Sangcha Ajin Foundation",
-  description: "Donate",
+  description:
+    "Donate to Sangcha Ajin Foundation and support meaningful social initiatives.",
+  keywords: [
+    "Sangcha Ajin Foundation",
+    "donation",
+    "charity",
+    "NGO",
+    "social welfare",
+    
+    "support foundation",
+    
+    "community support",
+  ],
+  
+  
 };
-
 export default function RootLayout({ children }) {
   return (
     <html
