@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const pathname = usePathname(); // ✅ current route
-
- 
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,90 +18,118 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-  // ✅ active class helper
+  // Desktop Links
   const linkClass = (path) =>
-    `transition ${
+    `relative transition-all duration-300 ${
       pathname === path
-        ? "text-black font-semibold border-b-2 border-black"
-        : "hover:text-black"
+        ? "text-black font-semibold border-b-2 border-black pb-1"
+        : "text-green-700 hover:text-black"
     }`;
 
+  // Mobile Links
   const mobileLinkClass = (path) =>
-    `block ${
-      pathname === path ? "text-green-400 font-semibold" : "hover:text-white"
+    `block py-2 text-lg transition ${
+      pathname === path
+        ? "text-green-400 font-semibold"
+        : "text-white hover:text-green-400"
     }`;
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300
-      ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "top-0 bg-white text-green-500 shadow"
-          : "top-[5px] bg-[#d4f3d2] text-[#12e72e]"
+          ? "top-0 bg-white shadow-md"
+          : "top-0 bg-[#d4f3d2]/95 backdrop-blur-md"
       }`}
     >
       <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        {/* Navbar Container */}
+        <div className="relative flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/">
+          <Link href="/" className="flex items-center z-20">
             <Image
               src="/logo.png"
               alt="SA Foundation Logo"
-              width={90}
-              height={35}
-              style={{ width: "auto", height: "auto" }}
-              className="object-contain cursor-pointer"
+              width={100}
+              height={40}
+              priority
+              className="object-contain w-[75px] sm:w-[90px] md:w-[100px] h-auto"
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          {/* Center Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2">
             <Link href="/" className={linkClass("/")}>
               Home
             </Link>
+
             <Link href="/about" className={linkClass("/about")}>
               About
             </Link>
+
             <Link href="/contact" className={linkClass("/contact")}>
               Contact
             </Link>
+
             <Link href="/management" className={linkClass("/management")}>
               Overview
             </Link>
           </div>
 
-          {/* Right Side */}
-          <div className="flex items-center space-x-4">
-           
-
-           
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-black z-20"
+          >
+            {open ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-black/80 backdrop-blur-md">
-          <div className="px-4 pt-2 pb-4 space-y-3">
-            <Link href="/" className={mobileLinkClass("/")}>
-              Home
-            </Link>
-            <Link href="/about" className={mobileLinkClass("/about")}>
-              About
-            </Link>
-            <Link href="/contact" className={mobileLinkClass("/contact")}>
-              Contact
-            </Link>
-            <Link href="/management" className={linkClass("/management")}>
-              Overview
-            </Link>
-          </div>
+      {/* Mobile / Tablet Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-black/90 backdrop-blur-md px-6 py-5 space-y-4">
+          <Link
+            href="/"
+            className={mobileLinkClass("/")}
+            onClick={() => setOpen(false)}
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/about"
+            className={mobileLinkClass("/about")}
+            onClick={() => setOpen(false)}
+          >
+            About
+          </Link>
+
+          <Link
+            href="/contact"
+            className={mobileLinkClass("/contact")}
+            onClick={() => setOpen(false)}
+          >
+            Contact
+          </Link>
+
+          <Link
+            href="/management"
+            className={mobileLinkClass("/management")}
+            onClick={() => setOpen(false)}
+          >
+            Overview
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

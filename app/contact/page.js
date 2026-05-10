@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -12,15 +13,46 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form); // yaha API connect kar sakte ho
-    alert("Message sent successfully!");
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const loadingToast = toast.loading("Sending message...");
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    toast.dismiss(loadingToast);
+
+    if (data.success) {
+      toast.success("Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } else {
+      toast.error("Failed to send message");
+    }
+  } catch (error) {
+    console.log(error);
+
+    toast.dismiss(loadingToast);
+    toast.error("Something went wrong");
+  }
+};
 
   return (
     <section className="w-full px-4 sm:px-6 py-12">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl text-black mx-auto">
         {/* Heading */}
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">
@@ -98,7 +130,7 @@ export default function ContactPage() {
                 value={form.message}
                 onChange={handleChange}
                 required
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-full mt-1 px-4 py-2 text-black  border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               ></textarea>
             </div>
 
